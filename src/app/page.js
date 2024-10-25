@@ -8,10 +8,11 @@ import { ShoppingBag, Gift, MapPin, Sun, Moon } from 'lucide-react'
 import { useCart } from '../components/CartProvider'
 import { CartDisplay } from '../components/CartDisplay'
 
+
 const featuredItems = [
-  { name: "Baklava Delight", description: "Layers of flaky phyllo, honey, and pistachios", image: "/placeholder.svg?text=Baklava&width=400&height=400", price: 2.50 },
-  { name: "Kunafa Dream", description: "Cheese pastry soaked in sweet syrup", image: "/placeholder.svg?text=Kunafa&width=400&height=400", price: 4.00 },
-  { name: "Maamoul Magic", description: "Date-filled shortbread with a touch of rose water", image: "/placeholder.svg?text=Maamoul&width=400&height=400", price: 1.50 },
+  { name: "Baklava Delight", description: "Layers of flaky phyllo, honey, and pistachios", image: "/pic/baklawa.jpg?text=Baklava&width=400&height=400", price: 2.50 },
+  { name: "Kunafa Dream", description: "Cheese pastry soaked in sweet syrup", image: "/pic/kunafa.png?text=Kunafa&width=400&height=400", price: 4.00 },
+  { name: "Maamoul Magic", description: "Date-filled shortbread with a touch of rose water", image: "/pic/klaja.jpg?text=Maamoul&width=400&height=400", price: 1.50 },
 ]
 
 const NavItem = ({ href, children, icon: Icon }) => (
@@ -146,7 +147,7 @@ export default function Home() {
       </section>
 
       {/* Rewards Program */}
-      <section className="bg-pink-50 dark:bg-gray-800 py-16">
+      {/* <section className="bg-pink-50 dark:bg-gray-800 py-16">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <Image src="/placeholder.svg?text=Rewards&width=500&height=500" alt="Rewards Program" width={500} height={500} className="rounded-lg shadow-lg" />
@@ -159,7 +160,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer className="bg-rose-700 dark:bg-gray-800 text-white py-12">
@@ -177,8 +178,8 @@ export default function Home() {
               <h3 className="text-lg font-semibold mb-4">Customer Service</h3>
               <ul className="space-y-2">
                 <li><a href="#" className="hover:text-pink-400">Contact Us</a></li>
-                <li><a href="#" className="hover:text-pink-400">FAQs</a></li>
-                <li><a href="#" className="hover:text-pink-400">Store Locator</a></li>
+                {/* <li><a href="#" className="hover:text-pink-400">FAQs</a></li>
+                <li><a href="#" className="hover:text-pink-400">Store Locator</a></li> */}
               </ul>
             </div>
             <div>
