@@ -34,11 +34,7 @@ const FeatureCard = ({ item }: { item: any }) => {
         <h3 className="text-xl font-semibold text-rose-700 dark:text-gray-200 mb-2">{item.name}</h3>
         <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
         <p className="text-rose-600 dark:text-pink-400 font-bold mt-2">${item.price.toFixed(2)}</p>
-        <button 
-          className="mt-4 bg-rose-500 text-white px-4 py-2 rounded hover:bg-rose-600 transition duration-300"
-        >
-          Add to Cart
-        </button>
+       
       </div>
     </motion.div>
   )

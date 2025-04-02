@@ -14,16 +14,19 @@ const categories = [
         name: "Classic Baklava",
         price: 2.5,
         description: "Layers of phyllo, honey, and mixed nuts",
+        Image: "/pic/baklawa.jpg"
       },
       {
         name: "Pistachio Baklava",
         price: 3.0,
         description: "Filled with crushed pistachios",
+        Image : "/pic/baklawa.jpg"
       },
       {
         name: "Chocolate Baklava",
         price: 3.5,
         description: "With a rich chocolate filling",
+        Image : "/pic/baklawa.jpg"
       },
     ],
   },
@@ -34,16 +37,19 @@ const categories = [
         name: "Cheese Kunafa",
         price: 4.0,
         description: "Traditional cheese-filled kunafa",
+        Image : "/pic/baklawa.jpg"
       },
       {
         name: "Cream Kunafa",
         price: 4.5,
         description: "Filled with sweet cream",
+        Image : "/pic/baklawa.jpg"
       },
       {
         name: "Nutella Kunafa",
         price: 5.0,
         description: "Modern twist with Nutella filling",
+        Image : "/pic/baklawa.jpg"
       },
     ],
   },
@@ -54,16 +60,19 @@ const categories = [
         name: "Date Maamoul",
         price: 1.5,
         description: "Filled with date paste",
+        Image : "/pic/baklawa.jpg"
       },
       {
         name: "Pistachio Maamoul",
         price: 2.0,
         description: "Filled with pistachio paste",
+        Image : "/pic/baklawa.jpg"
       },
       {
         name: "Walnut Maamoul",
         price: 2.0,
         description: "Filled with crushed walnuts",
+        Image : "/pic/baklawa.jpg"
       },
     ],
   },
@@ -88,26 +97,31 @@ const NavItem = ({
 );
 
 const MenuItem = ({ item }: { item: any }) => {
-
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6"
+      className="relative rounded-lg shadow-lg p-6 overflow-hidden h-64"
+      style={{
+        backgroundImage: `url(${item.Image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
-      <h3 className="text-xl font-semibold text-rose-700 dark:text-gray-200 mb-2">
-        {item.name}
-      </h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-2">
-        {item.description}
-      </p>
-      <p className="text-pink-600 dark:text-pink-400 font-bold">
-        ${item.price.toFixed(2)}
-      </p>
-      <button
-        className="mt-4 bg-rose-500 hover:bg-rose-600 text-white px-4 py-2 rounded transition duration-300"
-      >
-        Add to Cart
-      </button>
+      {/* Dark overlay to make text readable */}
+      <div className="absolute inset-0 bg-black/40 bg-opacity-50"></div>
+      
+      {/* Content with relative positioning to appear above the overlay */}
+      <div className="relative z-10">
+        <h3 className="text-xl font-semibold text-white mb-2">
+          {item.name}
+        </h3>
+        <p className="text-gray-200 mb-2">
+          {item.description}
+        </p>
+        <p className="text-pink-300 font-bold">
+          ${item.price.toFixed(2)}
+        </p>
+      </div>
     </motion.div>
   );
 };
