@@ -5,8 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ShoppingBag, Gift, MapPin, ArrowLeft, Sun, Moon } from "lucide-react";
-import { useCart } from "../components/cartprovider";
-import { CartDisplay } from "../components/cartdisplay";
 
 const categories = [
   {
@@ -90,7 +88,6 @@ const NavItem = ({
 );
 
 const MenuItem = ({ item }: { item: any }) => {
-  const { addToCart } = useCart();
 
   return (
     <motion.div
@@ -108,7 +105,6 @@ const MenuItem = ({ item }: { item: any }) => {
       </p>
       <button
         className="mt-4 bg-rose-500 hover:bg-rose-600 text-white px-4 py-2 rounded transition duration-300"
-        onClick={() => addToCart(item)}
       >
         Add to Cart
       </button>
