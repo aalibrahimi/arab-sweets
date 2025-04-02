@@ -1,10 +1,10 @@
 import "./globals.css";
-import { CartProvider } from "../../components/cartprovider";
 import React from "react";
 import { getLangDir } from "rtl-detect";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
+import { Navbar } from "@/MyComponents/navbar";
 
 export const metadata = {
   title: "Arab Sweets",
@@ -30,8 +30,8 @@ export default async function LocaleLayout({
     <html lang={locale} dir={direction} className="dark">
       <body>
         <NextIntlClientProvider>
-          
-          <CartProvider>{children}</CartProvider>
+          <Navbar />
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'motion/react'
 import { ShoppingBag, Gift, MapPin, Sun, Moon } from 'lucide-react'
-import { useCart } from '../../components/cartprovider'
-import { CartDisplay } from '../../components/cartdisplay'
 import { Link } from '@/i18n/navigation'
 
 
@@ -23,7 +21,6 @@ const NavItem = ({ href, children, icon: Icon }: { href: any, children: React.Re
 )
 
 const FeatureCard = ({ item }: { item: any }) => {
-  const { addToCart } = useCart()
 
   return (
     <motion.div 
@@ -37,7 +34,6 @@ const FeatureCard = ({ item }: { item: any }) => {
         <p className="text-rose-600 dark:text-pink-400 font-bold mt-2">${item.price.toFixed(2)}</p>
         <button 
           className="mt-4 bg-rose-500 text-white px-4 py-2 rounded hover:bg-rose-600 transition duration-300"
-          onClick={() => addToCart(item)}
         >
           Add to Cart
         </button>
@@ -47,61 +43,9 @@ const FeatureCard = ({ item }: { item: any }) => {
 }
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [theme, setTheme] = useState('light')
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('theme') || 'light'
-      setTheme(savedTheme)
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark')
-    }
-  }, [])
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-    localStorage.setItem('theme', newTheme)
-    document.documentElement.classList.toggle('dark')
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-red-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
-      <CartDisplay />
-      {/* Navigation */}
-      <nav className="bg-white dark:bg-gray-900 shadow-md">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center">
-            <Image src="/placeholder.svg?text=Logo&width=50&height=50" alt="Arab Sweets Logo" width={50} height={50} className="mr-4" />
-            <span className="text-2xl font-bold text-rose-600 dark:text-pink-400">Arab Sweets</span>
-          </div>
-          <div className="hidden md:flex space-x-6">
-            <NavItem href="/menu" icon={ShoppingBag}>Menu</NavItem>
-            <NavItem href="/rewards" icon={Gift}>Rewards</NavItem>
-            <NavItem href="/locations" icon={MapPin}>Locations</NavItem>
-          </div>
-          <div className="md:hidden">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-rose-600 dark:text-pink-400">
-              {isMenuOpen ? 'Close' : 'Menu'}
-            </button>
-          </div>
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-          >
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
-        </div>
-        {isMenuOpen && (
-          <div className="md:hidden bg-white dark:bg-gray-900 py-2">
-            <ul className="flex flex-col items-center">
-              <NavItem href="/menu" icon={ShoppingBag}>Menu</NavItem>
-              <NavItem href="/rewards" icon={Gift}>Rewards</NavItem>
-              <NavItem href="/locations" icon={MapPin}>Locations</NavItem>
-            </ul>
-          </div>
-        )}
-      </nav>
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-pink-100 to-red-100 dark:from-gray-800 dark:to-gray-700 py-20">
