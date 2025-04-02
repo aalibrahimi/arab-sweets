@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { ShoppingBag, Gift, MapPin, ArrowLeft, Sun, Moon } from 'lucide-react'
-import { useCart } from '../../components/CartProvider'
-import { CartDisplay } from '../../components/CartDisplay'
+import { useCart } from '../../../components/cartprovider'
+import { CartDisplay } from '../../../components/cartdisplay'
 
 const categories = [
   { name: "Baklava", items: [
@@ -26,14 +26,14 @@ const categories = [
   ]},
 ]
 
-const NavItem = ({ href, children, icon: Icon }) => (
+const NavItem = ({ href, children, icon: Icon }: { href: any, children: React.ReactNode, icon: any }) => (
   <Link href={href} className="flex items-center text-rose-700 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition duration-300">
     <Icon className="mr-2" size={20} />
     <span>{children}</span>
   </Link>
 )
 
-const MenuItem = ({ item }) => {
+const MenuItem = ({ item }: { item: any }) => {
   const { addToCart } = useCart()
 
   return (
@@ -121,7 +121,7 @@ export default function Menu() {
 
           {/* Menu Items */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categories.find(cat => cat.name === activeCategory).items.map((item, index) => (
+            {categories.find(cat => cat.name === activeCategory)?.items.map((item, index) => (
               <MenuItem key={index} item={item} />
             ))}
           </div>

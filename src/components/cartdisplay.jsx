@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { useCart } from './CartProvider'
 import { ShoppingCart, X, Plus, Minus } from 'lucide-react'
 import Link from 'next/link'
+import { useCart } from './cartprovider'
 
 export function CartDisplay() {
   const { cart, removeFromCart, clearCart, updateQuantity } = useCart()

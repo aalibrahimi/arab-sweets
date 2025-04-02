@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { useCart } from '../../components/CartProvider'
+import { useCart } from '../../../components/cartprovider'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
@@ -18,9 +18,9 @@ export default function Checkout() {
     cvv: '',
   })
 
-  const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const totalPrice = cart.reduce((sum: any, item: any) => sum + item.price * item.quantity, 0)
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     const { name, value } = e.target
     setFormData((prevData) => ({
       ...prevData,
@@ -28,7 +28,7 @@ export default function Checkout() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault()
     // Here you would typically send the order to a server
     console.log('Order submitted:', { cart, formData })
@@ -54,7 +54,7 @@ export default function Checkout() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-2xl font-semibold text-rose-600 dark:text-pink-400 mb-4">Order Summary</h2>
-            {cart.map((item) => (
+            {cart.map((item: any) => (
               <div key={item.name} className="flex justify-between items-center mb-2">
                 <span className="text-gray-800 dark:text-gray-200">
                   {item.name} (x{item.quantity})

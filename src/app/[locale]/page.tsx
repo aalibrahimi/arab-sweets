@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { ShoppingBag, Gift, MapPin, Sun, Moon } from 'lucide-react'
-import { useCart } from '../components/CartProvider'
-import { CartDisplay } from '../components/CartDisplay'
+import { useCart } from '../../components/cartprovider'
+import { CartDisplay } from '../../components/cartdisplay'
+import { Link } from '@/i18n/navigation'
 
 
 const featuredItems = [
@@ -15,14 +15,14 @@ const featuredItems = [
   { name: "Maamoul Magic", description: "Date-filled shortbread with a touch of rose water", image: "/pic/klaja.jpg?text=Maamoul&width=400&height=400", price: 1.50 },
 ]
 
-const NavItem = ({ href, children, icon: Icon }) => (
+const NavItem = ({ href, children, icon: Icon }: { href: any, children: React.ReactNode, icon: any }) => (
   <Link href={href} className="flex items-center text-rose-700 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition duration-300">
     <Icon className="mr-2" size={20} />
     <span>{children}</span>
   </Link>
 )
 
-const FeatureCard = ({ item }) => {
+const FeatureCard = ({ item }: { item: any }) => {
   const { addToCart } = useCart()
 
   return (
@@ -169,44 +169,44 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold mb-4">About Us</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-pink-400">Our Story</a></li>
-                <li><a href="#" className="hover:text-pink-400">Careers</a></li>
-                <li><a href="#" className="hover:text-pink-400">Social Impact</a></li>
+                <li><Link href="#" className="hover:text-pink-400">Our Story</Link></li>
+                <li><Link href="#" className="hover:text-pink-400">Careers</Link></li>
+                <li><Link href="#" className="hover:text-pink-400">Social Impact</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Customer Service</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-pink-400">Contact Us</a></li>
-                {/* <li><a href="#" className="hover:text-pink-400">FAQs</a></li>
-                <li><a href="#" className="hover:text-pink-400">Store Locator</a></li> */}
+                <li><Link href="#" className="hover:text-pink-400">Contact Us</Link></li>
+                {/* <li><Link href="#" className="hover:text-pink-400">FAQs</Link></li>
+                <li><Link href="#" className="hover:text-pink-400">Store Locator</Link></li> */}
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-pink-400">Menu</a></li>
-                <li><a href="#" className="hover:text-pink-400">Rewards</a></li>
-                <li><a href="#" className="hover:text-pink-400">Gift Cards</a></li>
+                <li><Link href="#" className="hover:text-pink-400">Menu</Link></li>
+                <li><Link href="#" className="hover:text-pink-400">Rewards</Link></li>
+                <li><Link href="#" className="hover:text-pink-400">Gift Cards</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
               <div className="flex space-x-4">
-                <a href="#" className="text-2xl hover:text-pink-400">
+                <Link href="#" className="text-2xl hover:text-pink-400">
                   <i className="fab fa-facebook"></i>
-                </a>
-                <a href="#" className="text-2xl hover:text-pink-400">
+                </Link>
+                <Link href="#" className="text-2xl hover:text-pink-400">
                   <i className="fab fa-instagram"></i>
-                </a>
-                <a href="#" className="text-2xl hover:text-pink-400">
+                </Link>
+                <Link href="#" className="text-2xl hover:text-pink-400">
                   <i className="fab fa-twitter"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
           <div className="mt-12 text-center">
-            <p>&copy; 2024 Arab Sweets. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Arab Sweets. All rights reserved.</p>
           </div>
         </div>
       </footer>
