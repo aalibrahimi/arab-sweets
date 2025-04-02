@@ -8,6 +8,7 @@ import { useCart } from '../../components/cartprovider'
 import { CartDisplay } from '../../components/cartdisplay'
 import { Link } from '@/i18n/navigation'
 import { Footer } from '@/components/Footer'
+import Menu from '@/MyComponents/menuItems'
 
 
 const featuredItems = [
@@ -135,6 +136,8 @@ export default function Home() {
         </div>
       </section>
 
+      <Menu />
+
       {/* Featured Items */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -147,21 +150,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Rewards Program */}
-      {/* <section className="bg-pink-50 dark:bg-gray-800 py-16">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0">
-            <Image src="/placeholder.svg?text=Rewards&width=500&height=500" alt="Rewards Program" width={500} height={500} className="rounded-lg shadow-lg" />
-          </div>
-          <div className="md:w-1/2 md:pl-12">
-            <h2 className="text-3xl font-bold text-rose-700 dark:text-white mb-4">Join Our Sweet Rewards Program</h2>
-            <p className="text-rose-600 dark:text-gray-300 mb-6">Earn points with every purchase and enjoy exclusive offers, free treats, and more!</p>
-            <button className="bg-rose-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-rose-600 transition duration-300">
-              Sign Up Now
-            </button>
-          </div>
-        </div>
-      </section> */}
 
       {/* Footer */}
       <Footer />
