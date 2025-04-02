@@ -132,7 +132,7 @@ export function Navbar(): React.ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-gray-200 dark:border-gray-800 bg-amber-100 text-black dark:bg-[#000000] dark:text-white">
+    <header className="sticky top-0 z-40 w-full border-b border-gray-200 dark:border-gray-800 bg-white text-black dark:bg-gray-900 dark:text-white">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Navigation */}
         {/* <nav className="bg-white dark:bg-gray-900 shadow-md">
@@ -174,20 +174,10 @@ export function Navbar(): React.ReactElement {
               height={45}
               width={45}
             />
+            <span className="text-2xl font-bold text-rose-600 dark:text-pink-400">
+              Arab Sweets
+            </span>
           </Link>
-
-          {/* Mobile menu toggle button */}
-          <button
-            className="md:hidden p-2 rounded-md hover:bg-amber-600 dark:hover:bg-gray-800 transition-colors"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
         </div>
 
         {/* Right section: Language switcher, Mode toggle and Avatar with dropdown */}
