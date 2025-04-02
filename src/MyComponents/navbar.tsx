@@ -2,16 +2,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { ModeToggle } from "@/components/ui/modetoggle";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { Menu, X, Globe, Moon, Sun } from "lucide-react"; // Import icons for menu toggle and language
+import { Globe } from "lucide-react"; // Import icons for menu toggle and language
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -36,63 +28,7 @@ interface RouteItem {
 }
 
 export function Navbar(): React.ReactElement {
-  const defaultRoute = { href: "/" };
   const t = useTranslations("NavBar");
-
-  const routes: RouteItem[] = [
-    {
-      title: t("routes.home"),
-      href: "/",
-    },
-    {
-      title: t("routes.about"),
-      href: "/about",
-    },
-    {
-      title: t("routes.features.title"),
-      content: [
-        {
-          title: t("routes.features.content.1.title"),
-          href: "/features/1",
-          description: t("routes.features.content.1.desc"),
-        },
-        {
-          title: t("routes.features.content.2.title"),
-          href: "/features/2",
-          description: t("routes.features.content.2.desc"),
-        },
-        {
-          title: t("routes.features.content.3.title"),
-          href: "/features/3",
-          description: t("routes.features.content.3.desc"),
-        },
-      ],
-    },
-    {
-      title: t("routes.resources.title"),
-      content: [
-        {
-          title: t("routes.resources.content.1.title"),
-          href: "/docs",
-          description: t("routes.resources.content.1.desc"),
-        },
-        {
-          title: t("routes.resources.content.2.title"),
-          href: "/blog",
-          description: t("routes.resources.content.2.desc"),
-        },
-        {
-          title: t("routes.resources.content.3.title"),
-          href: "/help",
-          description: t("routes.resources.content.3.desc"),
-        },
-      ],
-    },
-    {
-      title: t("routes.contact"),
-      href: "/contact",
-    },
-  ];
 
   interface Language {
     code: string;
@@ -108,14 +44,9 @@ export function Navbar(): React.ReactElement {
   const locale = useLocale();
   const pathname = usePathname();
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState<Language>(
     languages[0]
   );
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => !prev);
-  };
 
   const changeLanguage = (language: Language) => {
     if (language.code === locale) return;
@@ -129,36 +60,9 @@ export function Navbar(): React.ReactElement {
     setCurrentLanguage(matchedLanguage);
   }, [locale]);
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-gray-200 dark:border-gray-800 bg-amber-100 text-black dark:bg-[#000000] dark:text-white">
+    <header className="sticky top-0 z-40 w-full border-b border-gray-200 dark:border-gray-800 bg-white text-black dark:bg-gray-900 dark:text-white">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        {/* Navigation */}
-        {/* <nav className="bg-white dark:bg-gray-900 shadow-md">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div className="flex items-center">
-              <Image
-                src="/placeholder.svg?text=Logo&width=50&height=50"
-                alt="Arab Sweets Logo"
-                width={50}
-                height={50}
-                className="mr-4"
-              />
-              <span className="text-2xl font-bold text-rose-600 dark:text-pink-400">
-                Arab Sweets
-              </span>
-            </div>
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-rose-600 dark:text-pink-400"
-              >
-                {isMenuOpen ? "Close" : "Menu"}
-              </button>
-            </div>
-          </div>
-        </nav> */}
 
         {/* Left section: Logo and mobile menu toggle */}
         <div className="flex items-center gap-4">
@@ -174,20 +78,10 @@ export function Navbar(): React.ReactElement {
               height={45}
               width={45}
             />
+            <span className="text-2xl font-bold text-rose-600 dark:text-pink-400">
+              Arab Sweets
+            </span>
           </Link>
-
-          {/* Mobile menu toggle button */}
-          <button
-            className="md:hidden p-2 rounded-md hover:bg-amber-600 dark:hover:bg-gray-800 transition-colors"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
         </div>
 
         {/* Right section: Language switcher, Mode toggle and Avatar with dropdown */}
@@ -228,96 +122,6 @@ export function Navbar(): React.ReactElement {
 
           <ModeToggle />
         </div>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      <div
-        className={`md:hidden absolute w-full bg-white dark:bg-gray-950 text-black dark:text-white border-b border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen
-            ? "max-h-screen opacity-100 translate-y-0"
-            : "max-h-0 opacity-0 -translate-y-4 pointer-events-none"
-        } overflow-hidden`}
-      >
-        <nav className="px-4 py-4 space-y-1">
-          {/* Language Selector - Mobile View */}
-          <div className="py-2">
-            <p className="px-3 text-sm font-medium text-gray-500 dark:text-gray-400">
-              {t("labelLang")}
-            </p>
-            <div className="mt-1 grid grid-cols-2 gap-1">
-              {languages.map((language) => (
-                <button
-                  key={language.code}
-                  className={cn(
-                    "flex items-center gap-2 py-2 px-3 text-sm rounded-md transition-colors",
-                    currentLanguage.code === language.code
-                      ? "bg-gray-100 dark:bg-gray-800 font-medium"
-                      : "hover:bg-gray-50 dark:hover:bg-gray-900"
-                  )}
-                  onClick={() => {
-                    changeLanguage(language);
-                  }}
-                >
-                  <span>{language.flag}</span> {language.name}
-                </button>
-              ))}
-            </div>
-            <div className="my-2 border-t border-gray-200 dark:border-gray-800"></div>
-          </div>
-          {routes.map((route, index) => {
-            if (route.content) {
-              return (
-                <div key={index} className="py-2">
-                  <details className="group">
-                    <summary className="font-medium py-2 px-3 cursor-pointer list-none flex justify-between items-center hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">
-                      {route.title}
-                      <div className="transition-transform duration-300 group-open:rotate-180">
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M2.5 4.5L6 8L9.5 4.5"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
-                    </summary>
-                    <div className="pl-4 space-y-1 mt-1 transition-all duration-300 ease-in-out">
-                      {route.content.map((item, i) => (
-                        <Link
-                          key={i}
-                          href={item.href}
-                          className="block py-2 px-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {item.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </details>
-                </div>
-              );
-            }
-
-            return (
-              <Link
-                key={index}
-                href={route.href || defaultRoute.href}
-                className="block py-2 px-3 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {route.title}
-              </Link>
-            );
-          })}
-        </nav>
       </div>
     </header>
   );
