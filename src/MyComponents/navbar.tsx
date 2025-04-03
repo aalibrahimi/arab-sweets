@@ -72,11 +72,15 @@ export function Navbar(): React.ReactElement {
             className="flex items-center space-x-2"
           >
             <Image
-              src="/logoPlaceholder.png"
-              alt="Logo"
+              src="/logo.png"
+              alt="Arab Sweets"
+              quality={100}
               draggable={false}
-              height={45}
-              width={45}
+              height={500}
+              width={500}
+              className="w-14 h-auto"
+              // height={45}
+              // width={45}
             />
             <span className="text-2xl font-bold text-rose-600 dark:text-pink-400">
               Arab Sweets
