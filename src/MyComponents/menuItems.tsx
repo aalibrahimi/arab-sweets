@@ -52,16 +52,16 @@ const categories = [
         Image: "/warbat.png"
       },
       {
-        name: "Daheen",
+        name: "Daheena",
         price: 2.5,
         description: "Traditional Iraqi date and flour pudding",
-        Image: "/daheen.jpg"
+        Image: "/daheena.png"
       },
       {
         name: "Honeycomb Bread",
         price: 3.0,
         description: "Sweet bread with a distinctive honeycomb texture",
-        Image: "/honeycomb-bread.jpg"
+        Image: "/honeycomb.png"
       },
     ]
   },
