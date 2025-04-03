@@ -32,36 +32,36 @@ const categories = [
         name: "Zalabia",
         price: 2.0,
         description: "Rosette-shaped fritters drizzled with sweet syrup",
-        Image: "/desserts/zalabia.jpg"
+        Image: "/zalabia.jpg"
       },
     ]
   },
   {
     name: "Special Iraqi Desserts",
     items: [
-      {
-        name: "Halawat Sha'riyya",
-        price: 3.5,
-        description: "Vermicelli dessert with walnuts, cardamom and rose water",
-        Image: "/desserts/halawat.jpg"
-      },
+      // {
+      //   name: "Halawat Sha'riyya",
+      //   price: 3.5,
+      //   description: "Vermicelli dessert with walnuts, cardamom and rose water",
+      //   Image: "/halawat.jpg"
+      // },
       {
         name: "Kahi",
         price: 3.0,
         description: "Flaky pastry made from filo dough and butter",
-        Image: "/desserts/kahi.jpg"
+        Image: "/warbat.png"
       },
       {
         name: "Daheen",
         price: 2.5,
         description: "Traditional Iraqi date and flour pudding",
-        Image: "/desserts/daheen.jpg"
+        Image: "/daheen.jpg"
       },
       {
         name: "Honeycomb Bread",
         price: 3.0,
         description: "Sweet bread with a distinctive honeycomb texture",
-        Image: "/desserts/honeycomb-bread.jpg"
+        Image: "/honeycomb-bread.jpg"
       },
     ]
   },
@@ -72,19 +72,19 @@ const categories = [
         name: "Strawberry Parfait",
         price: 4.0,
         description: "Layered dessert with fresh strawberries, cream and cookies",
-        Image: "/desserts/strawberry-parfait.jpg"
+        Image: "/strawberry-parfait.jpg"
       },
       {
         name: "Oreo Parfait",
         price: 4.0,
         description: "Creamy layers with crushed Oreo cookies and whipped cream",
-        Image: "/desserts/oreo-parfait.jpg"
+        Image: "/oreo-parfait.jpg"
       },
       {
         name: "Custard",
         price: 2.5,
         description: "Smooth, creamy dessert with a delicate flavor",
-        Image: "/desserts/custard.jpg"
+        Image: "/custard.jpg"
       }
     ]
   }
