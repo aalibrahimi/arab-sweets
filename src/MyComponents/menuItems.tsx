@@ -132,7 +132,7 @@ const MenuItem = ({ item }: { item: any }) => {
           {item.description}
         </p>
         <p className="text-pink-300 font-bold">
-          ${item.price.toFixed(2)}
+          ${item.price.toFixed(2)} / Ib
         </p>
       </div>
     </motion.div>
