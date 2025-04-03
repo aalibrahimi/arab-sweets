@@ -12,19 +12,19 @@ const featuredItems = [
   {
     name: "Baklava Delight",
     description: "Layers of flaky phyllo, honey, and pistachios",
-    image: "/pic/baklawa.jpg?text=Baklava&width=400&height=400",
+    image: "/baklawa.jpg",
     price: 2.5,
   },
   {
     name: "Kunafa Dream",
     description: "Cheese pastry soaked in sweet syrup",
-    image: "/pic/kunafa.png?text=Kunafa&width=400&height=400",
+    image: "/kunafa.png",
     price: 4.0,
   },
   {
     name: "Maamoul Magic",
     description: "Date-filled shortbread with a touch of rose water",
-    image: "/pic/klaja.jpg?text=Maamoul&width=400&height=400",
+    image: "/klaja.jpg",
     price: 1.5,
   },
 ];
