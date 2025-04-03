@@ -7,7 +7,7 @@ import { routing } from "@/i18n/routing";
 import { Navbar } from "@/MyComponents/navbar";
 
 export const metadata = {
-  title: "Arab Sweets",
+  title: "Iraqi Sweets",
   description: "Discover the rich flavors of Middle Eastern desserts",
 };
 

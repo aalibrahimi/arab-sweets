@@ -1,89 +1,97 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
-  },
   "NavBar": {
     "labelSwitchLang": "Switch Language",
     "labelSelectLang": "Select Language",
-    "dropdown": {
-      "title": "My Account",
-      "item1": "Profile",
-      "item2": "Settings",
-      "item3": "Dashboard",
-      "logout": "Logout"
+    "logo": {
+      "1": "Iraqi Sweets",
+      "2": "-Geida"
+    }
+  },
+  "HomePage": {
+    "hero": {
+      "title": "Discover the Magic of Middle Eastern Sweets",
+      "desc": "Indulge in centuries of tradition with every bite",
+      "insta": "Follow Us"
     },
-    "labelLang": "Language",
-    "routes": {
-      "home": "Home",
-      "about": "About",
-      "contact": "Contact",
-      "features": {
-        "title": "Features",
-        "content": {
-          "1": {
-            "title": "Feature 1",
-            "desc": "Description for feature 1"
-          },
-          "2": {
-            "title": "Feature 2",
-            "desc": "Description for feature 2"
-          },
-          "3": {
-            "title": "Feature 3",
-            "desc": "Description for feature 3"
-          }
+    "featured": {
+      "title": "Featured Sweets",
+      "item": {
+        "1": {
+          "name": "Baklava Delight",
+          "desc": "Layers of flaky phyllo, honey, and pistachios"
+        },
+        "2": {
+          "name": "Kunafa Dream",
+          "desc": "Cheese pastry soaked in sweet syrup"
+        },
+        "3": {
+          "name": "Maamoul Magic",
+          "desc": "Date-filled shortbread with a touch of rose water"
         }
-      },
-      "resources": {
-        "title": "Resources",
-        "content": {
-          "1": {
-            "title": "Documentation",
-            "desc": "Technical documentation and guides"
-          },
-          "2": {
-            "title": "Blog",
-            "desc": "Latest news and articles"
-          },
-          "3": {
-            "title": "Help Center",
-            "desc": "Support resources and FAQs"
+      }
+    },
+    "menu": {
+      "title": "Our Menu",
+      "category": {
+        "trad": {
+          "title": "Traditional Pastries",
+          "item": {
+            "1": {
+              "name": "Baklava",
+              "desc": "Layers of phyllo dough with honey and chopped nuts"
+            },
+            "2": {
+              "name": "Kleicha",
+              "desc": "Traditional Iraqi cookies filled with dates and cardamom"
+            },
+            "3": {
+              "name": "Kunafa",
+              "desc": "Sweet cheese pastry soaked in syrup"
+            },
+            "4": {
+              "name": "Zalabia",
+              "desc": "Rosette-shaped fritters drizzled with sweet syrup"
+            }
+          }
+        },
+        "spec": {
+          "title": "Special Iraqi Desserts",
+          "item": {
+            "1": {
+              "name": "Kahi",
+              "desc": "Flaky pastry made from filo dough and butter"
+            },
+            "2": {
+              "name": "Daheena",
+              "desc": "Traditional Iraqi date and flour pudding"
+            },
+            "3": {
+              "name": "Honeycomb Bread",
+              "desc": "Sweet bread with a distinctive honeycomb texture"
+            }
+          }
+        },
+        "del": {
+          "title": "Modern Delights",
+          "item": {
+            "1": {
+              "name": "Strawberry Parfait",
+              "desc": "Layered dessert with fresh strawberries, cream and cookies"
+            },
+            "2": {
+              "name": "Oreo Parfait",
+              "desc": "Creamy layers with crushed Oreo cookies and whipped cream"
+            },
+            "3": {
+              "name": "Custard",
+              "desc": "Smooth, creamy dessert with a delicate flavor"
+            }
           }
         }
       }
     }
   },
   "Footer": {
-    "compDesc": "Your company description goes here. A brief overview of what your organization does and its mission.",
-    "rights": "Your Company. All rights reserved.",
-    "customLink": "Github",
-    "cwaMark": "Designed By",
-    "nav": {
-      "company": {
-        "title": "Company",
-        "links": {
-          "1": "About",
-          "2": "Careers",
-          "3": "Contact"
-        }
-      },
-      "resources": {
-        "title": "Resources",
-        "links": {
-          "1": "Blog",
-          "2": "Documentation",
-          "3": "Help Center"
-        }
-      },
-      "legal": {
-        "title": "Legal",
-        "links": {
-          "1": "Privacy Policy",
-          "2": "Terms of Service",
-          "3": "Cookie Policy"
-        }
-      }
-    }
+    "rights": "Iraqi Sweets. All rights reserved."
   }
 }

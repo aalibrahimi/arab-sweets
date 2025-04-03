@@ -5,90 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ShoppingBag, Gift, MapPin, ArrowLeft, Sun, Moon } from "lucide-react";
-
-const categories = [
-  {
-    name: "Traditional Pastries",
-    items: [
-      {
-        name: "Baklava",
-        price: 3.0,
-        description: "Layers of phyllo dough with honey and chopped nuts",
-        Image: "/baklawa.jpg"
-      },
-      {
-        name: "Kleicha",
-        price: 2.5,
-        description: "Traditional Iraqi cookies filled with dates and cardamom",
-        Image: "/klaja.jpg"
-      },
-      {
-        name: "Kunafa",
-        price: 4.0, 
-        description: "Sweet cheese pastry soaked in syrup",
-        Image: "/kunafa.png"
-      },
-      {
-        name: "Zalabia",
-        price: 2.0,
-        description: "Rosette-shaped fritters drizzled with sweet syrup",
-        Image: "/zalabia.jpg"
-      },
-    ]
-  },
-  {
-    name: "Special Iraqi Desserts",
-    items: [
-      // {
-      //   name: "Halawat Sha'riyya",
-      //   price: 3.5,
-      //   description: "Vermicelli dessert with walnuts, cardamom and rose water",
-      //   Image: "/halawat.jpg"
-      // },
-      {
-        name: "Kahi",
-        price: 3.0,
-        description: "Flaky pastry made from filo dough and butter",
-        Image: "/warbat.png"
-      },
-      {
-        name: "Daheena",
-        price: 2.5,
-        description: "Traditional Iraqi date and flour pudding",
-        Image: "/daheena.png"
-      },
-      {
-        name: "Honeycomb Bread",
-        price: 3.0,
-        description: "Sweet bread with a distinctive honeycomb texture",
-        Image: "/honeycomb.png"
-      },
-    ]
-  },
-  {
-    name: "Modern Delights",
-    items: [
-      {
-        name: "Strawberry Parfait",
-        price: 4.0,
-        description: "Layered dessert with fresh strawberries, cream and cookies",
-        Image: "/strawberry.webp"
-      },
-      {
-        name: "Oreo Parfait",
-        price: 4.0,
-        description: "Creamy layers with crushed Oreo cookies and whipped cream",
-        Image: "/oreo.jpg"
-      },
-      {
-        name: "Custard",
-        price: 2.5,
-        description: "Smooth, creamy dessert with a delicate flavor",
-        Image: "/custardd.jpeg"
-      }
-    ]
-  }
-];
+import { useTranslations } from "next-intl";
 
 const NavItem = ({
   href,
@@ -109,37 +26,116 @@ const NavItem = ({
 );
 
 const MenuItem = ({ item }: { item: any }) => {
-
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
       className="relative rounded-lg shadow-lg p-6 overflow-hidden h-64"
       style={{
         backgroundImage: `url(${item.Image})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       {/* Dark overlay to make text readable */}
       <div className="absolute inset-0 bg-black/40 bg-opacity-40"></div>
-      
+
       {/* Content with relative positioning to appear above the overlay */}
       <div className="relative z-10">
-        <h3 className="text-xl font-semibold text-white mb-2">
-          {item.name}
-        </h3>
-        <p className="text-gray-200 mb-2">
-          {item.description}
-        </p>
-        <p className="text-pink-300 font-bold">
-          ${item.price.toFixed(2)} / lb
-        </p>
+        <h3 className="text-xl font-semibold text-white mb-2">{item.name}</h3>
+        <p className="text-gray-200 mb-2">{item.description}</p>
+        <p className="text-pink-300 font-bold">${item.price.toFixed(2)} / lb</p>
       </div>
     </motion.div>
   );
 };
 
 export default function Menu() {
+  const t = useTranslations("HomePage.menu");
+
+  const categories = [
+    {
+      name: t("category.trad.title"),
+      items: [
+        {
+          name: t("category.trad.item.1.name"),
+          price: 3.0,
+          description: t("category.trad.item.1.desc"),
+          Image: "/baklawa.jpg",
+        },
+        {
+          name: t("category.trad.item.2.name"),
+          price: 2.5,
+          description: t("category.trad.item.2.desc"),
+          Image: "/klaja.jpg",
+        },
+        {
+          name: t("category.trad.item.3.name"),
+          price: 4.0,
+          description: t("category.trad.item.3.desc"),
+          Image: "/kunafa.png",
+        },
+        {
+          name: t("category.trad.item.4.name"),
+          price: 2.0,
+          description: t("category.trad.item.4.desc"),
+          Image: "/zalabia.jpg",
+        },
+      ],
+    },
+    {
+      name: t("category.spec.title"),
+      items: [
+        // {
+        //   name: "Halawat Sha'riyya",
+        //   price: 3.5,
+        //   description: "Vermicelli dessert with walnuts, cardamom and rose water",
+        //   Image: "/halawat.jpg"
+        // },
+        {
+          name: t("category.spec.item.1.name"),
+          price: 3.0,
+          description: t("category.spec.item.1.desc"),
+          Image: "/warbat.png",
+        },
+        {
+          name: t("category.spec.item.2.name"),
+          price: 2.5,
+          description: t("category.spec.item.2.desc"),
+          Image: "/daheena.png",
+        },
+        {
+          name: t("category.spec.item.3.name"),
+          price: 3.0,
+          description: t("category.spec.item.3.desc"),
+          Image: "/honeycomb.png",
+        },
+      ],
+    },
+    {
+      name: t("category.del.title"),
+      items: [
+        {
+          name: t("category.del.item.1.name"),
+          price: 4.0,
+          description: t("category.del.item.1.desc"),
+          Image: "/strawberry.webp",
+        },
+        {
+          name: t("category.del.item.2.name"),
+          price: 4.0,
+          description: t("category.del.item.2.desc"),
+          Image: "/oreo.jpg",
+        },
+        {
+          name: t("category.del.item.3.name"),
+          price: 2.5,
+          description: t("category.del.item.3.desc"),
+          Image: "/custardd.jpeg",
+        },
+      ],
+    },
+  ];
+
   const [activeCategory, setActiveCategory] = useState(categories[0].name);
   const [theme, setTheme] = useState("light");
 
@@ -160,12 +156,11 @@ export default function Menu() {
 
   return (
     <div className="flex flex-col bg-gradient-to-br from-pink-50 to-red-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">
-
       {/* Menu Section */}
       <section className="flex-grow py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-center text-rose-700 dark:text-white mb-12">
-            Our Menu
+            {t("title")}
           </h1>
 
           {/* Category Tabs */}

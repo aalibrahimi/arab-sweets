@@ -38,7 +38,7 @@ export function Navbar(): React.ReactElement {
 
   const languages: Language[] = [
     { code: "en", name: "English", flag: "🇺🇸" },
-    { code: "ar", name: "العربية", flag: "ar" },
+    { code: "ar", name: "العربية", flag: "🇮🇶" },
   ];
 
   const locale = useLocale();
@@ -73,7 +73,7 @@ export function Navbar(): React.ReactElement {
           >
             <Image
               src="/logo.png"
-              alt="Arab Sweets"
+              alt="Iraqi Sweets"
               quality={100}
               draggable={false}
               height={500}
@@ -83,7 +83,8 @@ export function Navbar(): React.ReactElement {
               // width={45}
             />
             <span className="text-2xl font-bold text-rose-600 dark:text-pink-400">
-              Arab Sweets
+              {t('logo.1')}
+              <sub className="text-sm italic font-normal text-rose-400 dark:text-pink-300 ml-1">{t('logo.2')}</sub>
             </span>
           </Link>
         </div>
