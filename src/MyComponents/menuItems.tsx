@@ -8,74 +8,86 @@ import { ShoppingBag, Gift, MapPin, ArrowLeft, Sun, Moon } from "lucide-react";
 
 const categories = [
   {
-    name: "Baklava",
+    name: "Traditional Pastries",
     items: [
       {
-        name: "Classic Baklava",
-        price: 2.5,
-        description: "Layers of phyllo, honey, and mixed nuts",
-        Image: "/pic/baklawa.jpg"
-      },
-      {
-        name: "Pistachio Baklava",
+        name: "Baklava",
         price: 3.0,
-        description: "Filled with crushed pistachios",
-        Image : "/pic/baklawa.jpg"
+        description: "Layers of phyllo dough with honey and chopped nuts",
+        Image: "/baklawa.jpg"
       },
       {
-        name: "Chocolate Baklava",
+        name: "Kleicha",
+        price: 2.5,
+        description: "Traditional Iraqi cookies filled with dates and cardamom",
+        Image: "/klaja.jpg"
+      },
+      {
+        name: "Kunafa",
+        price: 4.0, 
+        description: "Sweet cheese pastry soaked in syrup",
+        Image: "/kunafa.png"
+      },
+      {
+        name: "Zalabia",
+        price: 2.0,
+        description: "Rosette-shaped fritters drizzled with sweet syrup",
+        Image: "/desserts/zalabia.jpg"
+      },
+    ]
+  },
+  {
+    name: "Special Iraqi Desserts",
+    items: [
+      {
+        name: "Halawat Sha'riyya",
         price: 3.5,
-        description: "With a rich chocolate filling",
-        Image : "/pic/baklawa.jpg"
+        description: "Vermicelli dessert with walnuts, cardamom and rose water",
+        Image: "/desserts/halawat.jpg"
       },
-    ],
+      {
+        name: "Kahi",
+        price: 3.0,
+        description: "Flaky pastry made from filo dough and butter",
+        Image: "/desserts/kahi.jpg"
+      },
+      {
+        name: "Daheen",
+        price: 2.5,
+        description: "Traditional Iraqi date and flour pudding",
+        Image: "/desserts/daheen.jpg"
+      },
+      {
+        name: "Honeycomb Bread",
+        price: 3.0,
+        description: "Sweet bread with a distinctive honeycomb texture",
+        Image: "/desserts/honeycomb-bread.jpg"
+      },
+    ]
   },
   {
-    name: "Kunafa",
+    name: "Modern Delights",
     items: [
       {
-        name: "Cheese Kunafa",
+        name: "Strawberry Parfait",
         price: 4.0,
-        description: "Traditional cheese-filled kunafa",
-        Image : "/pic/baklawa.jpg"
+        description: "Layered dessert with fresh strawberries, cream and cookies",
+        Image: "/desserts/strawberry-parfait.jpg"
       },
       {
-        name: "Cream Kunafa",
-        price: 4.5,
-        description: "Filled with sweet cream",
-        Image : "/pic/baklawa.jpg"
+        name: "Oreo Parfait",
+        price: 4.0,
+        description: "Creamy layers with crushed Oreo cookies and whipped cream",
+        Image: "/desserts/oreo-parfait.jpg"
       },
       {
-        name: "Nutella Kunafa",
-        price: 5.0,
-        description: "Modern twist with Nutella filling",
-        Image : "/pic/baklawa.jpg"
-      },
-    ],
-  },
-  {
-    name: "Maamoul",
-    items: [
-      {
-        name: "Date Maamoul",
-        price: 1.5,
-        description: "Filled with date paste",
-        Image : "/pic/baklawa.jpg"
-      },
-      {
-        name: "Pistachio Maamoul",
-        price: 2.0,
-        description: "Filled with pistachio paste",
-        Image : "/pic/baklawa.jpg"
-      },
-      {
-        name: "Walnut Maamoul",
-        price: 2.0,
-        description: "Filled with crushed walnuts",
-        Image : "/pic/baklawa.jpg"
-      },
-    ],
-  },
+        name: "Custard",
+        price: 2.5,
+        description: "Smooth, creamy dessert with a delicate flavor",
+        Image: "/desserts/custard.jpg"
+      }
+    ]
+  }
 ];
 
 const NavItem = ({
@@ -97,6 +109,7 @@ const NavItem = ({
 );
 
 const MenuItem = ({ item }: { item: any }) => {
+
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
@@ -108,7 +121,7 @@ const MenuItem = ({ item }: { item: any }) => {
       }}
     >
       {/* Dark overlay to make text readable */}
-      <div className="absolute inset-0 bg-black/40 bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-black/40 bg-opacity-40"></div>
       
       {/* Content with relative positioning to appear above the overlay */}
       <div className="relative z-10">
