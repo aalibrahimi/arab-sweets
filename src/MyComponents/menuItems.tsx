@@ -72,19 +72,19 @@ const categories = [
         name: "Strawberry Parfait",
         price: 4.0,
         description: "Layered dessert with fresh strawberries, cream and cookies",
-        Image: "/strawberry-parfait.jpg"
+        Image: "/strawberry.webp"
       },
       {
         name: "Oreo Parfait",
         price: 4.0,
         description: "Creamy layers with crushed Oreo cookies and whipped cream",
-        Image: "/oreo-parfait.jpg"
+        Image: "/oreo.jpg"
       },
       {
         name: "Custard",
         price: 2.5,
         description: "Smooth, creamy dessert with a delicate flavor",
-        Image: "/custard.jpg"
+        Image: "/custardd.jpeg"
       }
     ]
   }
