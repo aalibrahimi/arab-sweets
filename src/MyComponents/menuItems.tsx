@@ -58,25 +58,25 @@ export default function Menu() {
       items: [
         {
           name: t("category.trad.item.1.name"),
-          price: 3.0,
+          price: 15.0,
           description: t("category.trad.item.1.desc"),
           Image: "/baklawa.jpg",
         },
         {
           name: t("category.trad.item.2.name"),
-          price: 2.5,
+          price: 15.5,
           description: t("category.trad.item.2.desc"),
           Image: "/klaja.jpg",
         },
         {
           name: t("category.trad.item.3.name"),
-          price: 4.0,
+          price: 16.50,
           description: t("category.trad.item.3.desc"),
           Image: "/kunafa.png",
         },
         {
           name: t("category.trad.item.4.name"),
-          price: 2.0,
+          price: 18.0,
           description: t("category.trad.item.4.desc"),
           Image: "/zalabia.jpg",
         },
@@ -93,19 +93,19 @@ export default function Menu() {
         // },
         {
           name: t("category.spec.item.1.name"),
-          price: 3.0,
+          price: 3.5,
           description: t("category.spec.item.1.desc"),
           Image: "/warbat.png",
         },
         {
           name: t("category.spec.item.2.name"),
-          price: 2.5,
+          price: 17.5,
           description: t("category.spec.item.2.desc"),
           Image: "/daheena.png",
         },
         {
           name: t("category.spec.item.3.name"),
-          price: 3.0,
+          price: 15.0,
           description: t("category.spec.item.3.desc"),
           Image: "/honeycomb.png",
         },
@@ -116,19 +116,19 @@ export default function Menu() {
       items: [
         {
           name: t("category.del.item.1.name"),
-          price: 4.0,
+          price: 9.5,
           description: t("category.del.item.1.desc"),
           Image: "/strawberry.webp",
         },
         {
           name: t("category.del.item.2.name"),
-          price: 4.0,
+          price: 9.5,
           description: t("category.del.item.2.desc"),
           Image: "/oreo.jpg",
         },
         {
           name: t("category.del.item.3.name"),
-          price: 2.5,
+          price: 6.5,
           description: t("category.del.item.3.desc"),
           Image: "/custardd.jpeg",
         },

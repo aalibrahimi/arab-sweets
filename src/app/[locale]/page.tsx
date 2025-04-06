@@ -61,19 +61,19 @@ export default function Home() {
       name: t("featured.item.1.name"),
       description: t("featured.item.1.desc"),
       image: "/baklawa.jpg",
-      price: 2.5,
+      price: 15.5,
     },
     {
       name: t("featured.item.2.name"),
       description: t("featured.item.2.desc"),
       image: "/kunafa.png",
-      price: 4.0,
+      price: 20.0,
     },
     {
       name: t("featured.item.3.name"),
       description: t("featured.item.3.desc"),
       image: "/klaja.jpg",
-      price: 1.5,
+      price: 15.0,
     },
   ];
 
