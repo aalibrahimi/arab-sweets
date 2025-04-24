@@ -17,15 +17,15 @@ import { Globe } from "lucide-react"; // Import icons for menu toggle and langua
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
-interface RouteItem {
-  title: string;
-  href?: string;
-  content?: {
-    title: string;
-    href: string;
-    description: string;
-  }[];
-}
+// interface RouteItem {
+//   title: string;
+//   href?: string;
+//   content?: {
+//     title: string;
+//     href: string;
+//     description: string;
+//   }[];
+// }
 
 export function Navbar(): React.ReactElement {
   const t = useTranslations("NavBar");

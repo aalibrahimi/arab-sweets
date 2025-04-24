@@ -1,30 +1,28 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React, { useState } from "react";
 import { motion } from "motion/react";
-import { ShoppingBag, Gift, MapPin, ArrowLeft, Sun, Moon } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-const NavItem = ({
-  href,
-  children,
-  icon: Icon,
-}: {
-  href: any;
-  children: React.ReactNode;
-  icon: any;
-}) => (
-  <Link
-    href={href}
-    className="flex items-center text-rose-700 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition duration-300"
-  >
-    <Icon className="mr-2" size={20} />
-    <span>{children}</span>
-  </Link>
-);
+// const NavItem = ({
+//   href,
+//   children,
+//   icon: Icon,
+// }: {
+//   href: any;
+//   children: React.ReactNode;
+//   icon: any;
+// }) => (
+//   <Link
+//     href={href}
+//     className="flex items-center text-rose-700 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition duration-300"
+//   >
+//     <Icon className="mr-2" size={20} />
+//     <span>{children}</span>
+//   </Link>
+// );
 
+/* eslint-disable */
 const MenuItem = ({ item }: { item: any }) => {
   return (
     <motion.div
@@ -137,22 +135,6 @@ export default function Menu() {
   ];
 
   const [activeCategory, setActiveCategory] = useState(categories[0].name);
-  const [theme, setTheme] = useState("light");
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("theme") || "light";
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle("dark", savedTheme === "dark");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.classList.toggle("dark");
-  };
 
   return (
     <div className="flex flex-col bg-gradient-to-br from-pink-50 to-red-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500">

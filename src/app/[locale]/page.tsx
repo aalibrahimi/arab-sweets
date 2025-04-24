@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { ShoppingBag, Gift, MapPin, Sun, Moon, Instagram } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Footer } from "@/components/Footer";
 import Menu from "@/MyComponents/menuItems";
@@ -27,6 +26,7 @@ import { useTranslations } from "next-intl";
 //   </Link>
 // );
 
+/* eslint-disable */
 const FeatureCard = ({ item }: { item: any }) => {
   return (
     <motion.div
