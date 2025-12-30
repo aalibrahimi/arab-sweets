@@ -1,17 +1,30 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
-interface MenuItemType {
-  name: string;
-  price: number;
-  description: string;
-  Image: string;
-}
+const NavItem = ({
+  href,
+  children,
+  icon: Icon,
+}: {
+  href: any;
+  children: React.ReactNode;
+  icon: any;
+}) => (
+  <Link
+    href={href}
+    className="flex items-center text-rose-700 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition duration-300"
+  >
+    <Icon className="mr-2" size={20} />
+    <span>{children}</span>
+  </Link>
+);
 
-const MenuItem = ({ item }: { item: MenuItemType }) => {
+const MenuItem = ({ item }: { item: any }) => {
   return (
     <motion.div
       whileHover={{ y: -8, scale: 1.02 }}
@@ -137,8 +150,23 @@ export default function Menu() {
     },
   ];
 
-  // Flatten all items from all categories into a single array
-  const allItems = categories.flatMap(category => category.items);
+  const [activeCategory, setActiveCategory] = useState(categories[0].name);
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("theme") || "light";
+      setTheme(savedTheme);
+      document.documentElement.classList.toggle("dark", savedTheme === "dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.classList.toggle("dark");
+  };
 
   return (
     <div className="py-16">
