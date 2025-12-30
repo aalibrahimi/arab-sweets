@@ -61,42 +61,46 @@ export function Navbar(): React.ReactElement {
   }, [locale]);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-gray-200 dark:border-gray-800 bg-white text-black dark:bg-gray-900 dark:text-white">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+    <header className="sticky top-0 z-40 w-full border-b bg-card/80 backdrop-blur-md shadow-sm">
+      <div className="container mx-auto flex h-20 items-center justify-between px-6 md:px-8">
 
-        {/* Left section: Logo and mobile menu toggle */}
-        <div className="flex items-center gap-4">
+        {/* Left section: Logo */}
+        <div className="flex items-center gap-3">
           <Link
             href="/"
             draggable={false}
-            className="flex items-center space-x-2"
+            className="flex items-center gap-3 group"
           >
-            <Image
-              src="/logo.png"
-              alt="Iraqi Sweets"
-              quality={100}
-              draggable={false}
-              height={500}
-              width={500}
-              className="w-14 h-auto"
-              // height={45}
-              // width={45}
-            />
-            <span className="text-2xl font-bold text-rose-600 dark:text-pink-400">
-              {t('logo.1')}
-              <sub className="text-sm italic font-normal text-rose-400 dark:text-pink-300 ml-1">{t('logo.2')}</sub>
-            </span>
+            <div className="relative">
+              <Image
+                src="/logo.png"
+                alt="Arab Sweets"
+                quality={100}
+                draggable={false}
+                height={500}
+                width={500}
+                className="w-16 h-auto transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                {t('logo.1')}
+              </span>
+              <span className="text-xs md:text-sm font-light text-muted-foreground italic -mt-1">
+                {t('logo.2')}
+              </span>
+            </div>
           </Link>
         </div>
 
-        {/* Right section: Language switcher, Mode toggle and Avatar with dropdown */}
-        <div className="flex items-center justify-end gap-4 pr-4">
+        {/* Right section: Language switcher and Mode toggle */}
+        <div className="flex items-center gap-3">
           {/* Language Switcher */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="flex items-center gap-1 px-2 py-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                <Globe className="h-4 w-4" />
-                <span className="hidden sm:inline-block">
+              <button className="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-secondary/50 transition-all duration-300 hover:scale-105">
+                <Globe className="h-4 w-4 text-primary" />
+                <span className="hidden sm:inline-block text-lg">
                   {currentLanguage.flag}
                 </span>
                 <span className="sr-only">{t("labelSwitchLang")}</span>
@@ -104,22 +108,24 @@ export function Navbar(): React.ReactElement {
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="end"
-              className="bg-white dark:bg-gray-950 text-black dark:text-white"
+              className="bg-card border-border rounded-2xl shadow-lg min-w-[140px]"
             >
-              <DropdownMenuLabel>{t("labelSelectLang")}</DropdownMenuLabel>
-              <DropdownMenuSeparator />
+              <DropdownMenuLabel className="text-muted-foreground text-xs uppercase tracking-wider">
+                {t("labelSelectLang")}
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator className="bg-border" />
               {languages.map((language) => (
                 <DropdownMenuItem
                   key={language.code}
                   className={cn(
-                    "cursor-pointer flex items-center gap-2",
+                    "cursor-pointer flex items-center gap-3 rounded-lg my-1 transition-colors",
                     currentLanguage.code === language.code &&
-                      "font-medium bg-gray-100 dark:bg-gray-800"
+                      "bg-secondary font-medium"
                   )}
                   onClick={() => changeLanguage(language)}
                 >
-                  <span className="text-base">{language.flag}</span>
-                  {language.name}
+                  <span className="text-lg">{language.flag}</span>
+                  <span className="text-sm">{language.name}</span>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>

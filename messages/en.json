@@ -9,12 +9,12 @@
   },
   "HomePage": {
     "hero": {
-      "title": "Discover the Magic of Middle Eastern Sweets",
-      "desc": "Indulge in centuries of tradition with every bite",
-      "insta": "Follow Us"
+      "title": "Homemade Iraqi Sweets with Love",
+      "desc": "Traditional recipes passed down through generations, made fresh in my kitchen just for you",
+      "insta": "Follow My Journey"
     },
     "featured": {
-      "title": "Featured Sweets",
+      "title": "Customer Favorites",
       "item": {
         "1": {
           "name": "Baklava Delight",

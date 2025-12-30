@@ -7,8 +7,8 @@ import { routing } from "@/i18n/routing";
 import { Navbar } from "@/MyComponents/navbar";
 
 export const metadata = {
-  title: "Iraqi Sweets",
-  description: "Discover the rich flavors of Middle Eastern desserts",
+  title: "Iraqi Sweets - Homemade by Geida",
+  description: "Authentic Iraqi sweets made with love. Traditional recipes passed down through generations, fresh from my kitchen to your table.",
 };
 
 export default async function LocaleLayout({
@@ -27,8 +27,8 @@ export default async function LocaleLayout({
   const direction = getLangDir(locale);
 
   return (
-    <html lang={locale} dir={direction} className="dark">
-      <body>
+    <html lang={locale} dir={direction}>
+      <body className="antialiased">
         <NextIntlClientProvider>
           <Navbar />
           {children}
