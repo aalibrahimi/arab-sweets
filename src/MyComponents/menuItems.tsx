@@ -1,30 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from "react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
-const NavItem = ({
-  href,
-  children,
-  icon: Icon,
-}: {
-  href: any;
-  children: React.ReactNode;
-  icon: any;
-}) => (
-  <Link
-    href={href}
-    className="flex items-center text-rose-700 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition duration-300"
-  >
-    <Icon className="mr-2" size={20} />
-    <span>{children}</span>
-  </Link>
-);
+interface MenuItemType {
+  name: string;
+  price: number;
+  description: string;
+  Image: string;
+}
 
-const MenuItem = ({ item }: { item: any }) => {
+const MenuItem = ({ item }: { item: MenuItemType }) => {
   return (
     <motion.div
       whileHover={{ y: -8, scale: 1.02 }}
@@ -99,12 +86,6 @@ export default function Menu() {
     {
       name: t("category.spec.title"),
       items: [
-        // {
-        //   name: "Halawat Sha'riyya",
-        //   price: 3.5,
-        //   description: "Vermicelli dessert with walnuts, cardamom and rose water",
-        //   Image: "/halawat.jpg"
-        // },
         {
           name: t("category.spec.item.1.name"),
           price: 3.5,
@@ -150,23 +131,8 @@ export default function Menu() {
     },
   ];
 
-  const [activeCategory, setActiveCategory] = useState(categories[0].name);
-  const [theme, setTheme] = useState("light");
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("theme") || "light";
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle("dark", savedTheme === "dark");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.classList.toggle("dark");
-  };
+  // Flatten all items from all categories into a single array
+  const allItems = categories.flatMap(category => category.items);
 
   return (
     <div className="py-16">
